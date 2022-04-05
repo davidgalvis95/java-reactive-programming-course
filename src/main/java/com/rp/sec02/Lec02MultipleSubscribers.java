@@ -6,7 +6,7 @@ public class Lec02MultipleSubscribers {
 
     public static void main(String[] args) {
 
-
+        //We can have multiple subscribers subscribed to the same publisher and get the data out of it
         Flux<Integer> integerFlux = Flux.just(1, 2, 3, 4);
 
         Flux<Integer> evenFlux = integerFlux.filter(i -> i % 2 == 0);

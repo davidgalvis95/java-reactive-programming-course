@@ -9,6 +9,8 @@ public class Lec08FluxInterval {
 
     public static void main(String[] args) {
 
+        //This flux interval can be useful when we need to poll some data or something periodically
+        //like polling data each second or something like that
         Flux.interval(Duration.ofSeconds(1))
                 .subscribe(Util.onNext());
 

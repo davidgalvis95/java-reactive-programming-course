@@ -13,8 +13,9 @@ public class Lec09FluxFromMono {
 
         flux.subscribe(Util.onNext());*/
 
+        //The flux from mono will emit only a single item
         Flux.range(1, 10)
-                .next() // 1
+                .next() // 1 //The next operator will convert a flux to a mono
                 .filter(i -> i > 3)
                 .subscribe(Util.onNext(), Util.onError(), Util.onComplete());
 

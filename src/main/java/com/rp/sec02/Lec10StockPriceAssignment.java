@@ -16,11 +16,14 @@ public class Lec10StockPriceAssignment {
         StockPricePublisher.getPrice()
                 .subscribeWith(new Subscriber<Integer>() {
 
+                    //Now we are storing the subscription ins an instance variable, so taht we can cancel it
                     private Subscription subscription;
 
                     @Override
                     public void onSubscribe(Subscription subscription) {
                         this.subscription = subscription;
+                        //This will basically act like an unbounded subscription, so it says, give me all what you have
+                        //If this request is not present the flux won't emit any signal
                         subscription.request(Long.MAX_VALUE);
                     }
 

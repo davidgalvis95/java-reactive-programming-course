@@ -7,6 +7,7 @@ public class Lec03FluxFromArrayOrList {
 
     public static void main(String[] args) {
 
+        //This way, either from array of from any collection, is a way of creating a Flux when we already have the data, is like using just
         // List<String> strings = Arrays.asList("a", "b", "c");
 /*        Flux.fromIterable(strings)
                 .subscribe(Util.onNext());*/
