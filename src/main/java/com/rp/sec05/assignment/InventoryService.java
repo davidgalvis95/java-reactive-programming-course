@@ -16,10 +16,12 @@ public class InventoryService {
         db.put("Automotive", 100);
     }
 
+    //This is the consumer that is generated when we subscribe to the orders service
     public Consumer<PurchaseOrder> subscribeOrderStream(){
         return p -> db.computeIfPresent(p.getCategory(), (k, v) -> v - p.getQuantity());
     }
 
+    //This is generating a flux each 2 seconds with the updated inventory
     public Flux<String> inventoryStream(){
         return Flux.interval(Duration.ofSeconds(2))
                 .map(i -> db.toString());

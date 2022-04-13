@@ -18,8 +18,8 @@ public class OrderService {
     private Flux<PurchaseOrder> getOrderStream(){
         return Flux.interval(Duration.ofMillis(100))
                     .map(i -> new PurchaseOrder())
-                    .publish()
-                    .refCount(2);
+                    .publish()//This means that it will publish the same for everybody
+                    .refCount(2);//The publishing will be activated when at least 2 subscribers are there
     }
 
 

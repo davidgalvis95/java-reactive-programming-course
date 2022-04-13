@@ -11,7 +11,7 @@ public class Lec02HotShare {
     public static void main(String[] args) {
 
         Flux<String> movieStream = Flux.fromStream(() -> getMovie())
-                .delayElements(Duration.ofSeconds(2))
+                .delayElements(Duration.ofSeconds(1))
                 .share();
 
         movieStream
